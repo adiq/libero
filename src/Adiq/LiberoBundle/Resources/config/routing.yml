@@ -1,0 +1,23 @@
+_static:
+    resource: "@AdiqLiberoBundle/Controller/StaticController.php"
+    type:     annotation
+
+_readers:
+    resource: "@AdiqLiberoBundle/Controller/ReaderController.php"
+    type:     annotation
+
+_authors:
+    resource: "@AdiqLiberoBundle/Controller/AuthorController.php"
+    type:     annotation
+
+_publishers:
+    resource: "@AdiqLiberoBundle/Controller/PublisherController.php"
+    type:     annotation
+
+_books:
+    resource: "@AdiqLiberoBundle/Controller/BookController.php"
+    type:     annotation
+
+_actions:
+    resource: "@AdiqLiberoBundle/Controller/ActionController.php"
+    type:     annotation

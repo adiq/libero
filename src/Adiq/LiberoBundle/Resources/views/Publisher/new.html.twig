@@ -1,0 +1,20 @@
+{% extends 'AdiqLiberoBundle::layout.html.twig' %}
+
+{% block title %}Nowe wydawnictwo{% endblock %}
+
+
+{% block content %}
+
+    <h1 class="title">Dodaj wydawnictwo</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('publisher') }}">
+            Powrót do listy
+        </a>
+    </li>
+</ul>
+
+{% endblock %}

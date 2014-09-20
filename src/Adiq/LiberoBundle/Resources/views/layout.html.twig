@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="robots" content="noindex,nofollow" />
+        <title>{% block title 'Demo Bundle' %}</title>
+        <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/adiqlibero/css/style.css') }}" />
+    </head>
+    <body>
+        <div id="content">
+            <div class="header clear-fix">
+                <div class="header-logo">
+                <a href="{{ path('splash') }}">
+                    <img src="{{ asset('bundles/adiqlibero/images/logo.png') }}" alt="Libero" />
+                </a>
+                </div>
+            </div>
+            <ul id="menu">
+                <li><a href="{{ path('publisher') }}">Wydawnictwa</a></li>
+                <li><a href="{{ path('author') }}">Autorzy</a></li>
+                <li><a href="{{ path('book') }}">Książki</a></li>
+                <li><a href="{{ path('reader') }}">Czytelnicy</a></li>
+            </ul>
+
+
+            <div class="sf-reset">
+                    
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="flash-message">
+            <em>Notice</em>: {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+        <div style="clear: both"></div>
+
+    <div class="block">
+        {% block content %}{% endblock %}
+    </div>
+
+            </div>
+
+        </div>    
+</body>
+</html>

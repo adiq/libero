@@ -1,0 +1,36 @@
+{% extends 'AdiqLiberoBundle::layout.html.twig' %}
+
+{% block title %}Raport o wypożyczonych książkach{% endblock %}
+
+
+{% block content %}
+
+    <h1 class="title">Raport o wypożyczonych książkach</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Czytelnik</th>
+                <th>Tytuł</th>
+                <th>Data wypożyczenia</th>
+                <th>Termin zwrotu</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr {% if date(entity.dueDate) < date("now") %}class="warn"{% endif %}>
+                <td>{{ entity.reader.name }} {{ entity.reader.lastname }}</td>
+                <td>{{ entity.book.title }}</td>
+                <td>{{ entity.outDate|date('Y-m-d H:i') }}</td>
+                <td>
+                    {% if date(entity.dueDate) < date("now") %}
+                        <b>{{ entity.dueDate|time_ago_in_words  }} po terminie</b>
+                    {% else %}
+                        {{ entity.dueDate|date('Y-m-d H:i') }}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

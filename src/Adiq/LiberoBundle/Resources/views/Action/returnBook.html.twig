@@ -1,0 +1,38 @@
+{% extends 'AdiqLiberoBundle::layout.html.twig' %}
+
+{% block title %}Zwróc książkę{% endblock %}
+
+
+{% block content %}
+
+    <h1 class="title">Zwróc książkę</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Czytelnik</th>
+                <th>Tytuł</th>
+                <th>Data wypożyczenia</th>
+                <th>Termin zwrotu</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.reader.name }} {{ entity.reader.lastname }}</td>
+                <td>{{ entity.book.title }}</td>
+                <td>{{ entity.outDate|date('Y-m-d H:i') }}</td>
+                <td>{{ entity.dueDate|date('Y-m-d H:i') }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('return_update', { 'id': entity.id }) }}">zwróc tą książkę</a>
+                    </li>                    
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

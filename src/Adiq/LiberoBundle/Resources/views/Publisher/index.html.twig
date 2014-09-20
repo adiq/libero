@@ -1,0 +1,41 @@
+{% extends 'AdiqLiberoBundle::layout.html.twig' %}
+
+{% block title %}Wydawnictwa{% endblock %}
+
+
+{% block content %}
+
+    <h1 class="title">Panel: Wydawnictwa</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Nazwa wydawnictwa</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.name }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('publisher_edit', { 'id': entity.id }) }}">edytuj dane wydawnictwa</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('publisher_new') }}">
+                Dodaj nowe wydawnictwo
+            </a>
+        </li>
+    </ul>
+
+{% endblock %}

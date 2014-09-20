@@ -1,0 +1,47 @@
+{% extends 'AdiqLiberoBundle::layout.html.twig' %}
+
+{% block title %}Czytelnicy{% endblock %}
+
+
+{% block content %}
+
+    <h1 class="title">Panel: Czytelnicy</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Adres</th>
+                <th>Numer PESEL</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.lastname }}</td>
+                <td>{{ entity.address }}</td>
+                <td>{{ entity.pesel }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('reader_edit', { 'id': entity.id }) }}">edytuj dane czytelnika</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('reader_new') }}">
+                Dodaj nowego czytelnika
+            </a>
+        </li>
+    </ul>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'AdiqLiberoBundle::layout.html.twig' %}
+
+{% block title %}Książki{% endblock %}
+
+
+{% block content %}
+
+    <h1 class="title">Panel: Książki</h1>
+    
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Tytuł książki</th>
+                <th>Rok wydania</th>
+                <th>Stan</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.title }}</td>
+                <td>{{ entity.year|date('Y') }}</td>
+                <td>{% if entity.isRented %}Wypożyczona{% else %}Dostępna{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('book_show', { 'id': entity.id }) }}">pokaż dane książki</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('book_edit', { 'id': entity.id }) }}">edytuj dane książki</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('book_new') }}">
+                Dodaj nową książkę
+            </a>
+        </li>
+    </ul>
+
+{% endblock %}

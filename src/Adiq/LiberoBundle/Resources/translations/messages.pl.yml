@@ -1,0 +1,10 @@
+'less than %seconds seconds ago': 'tylko %seconds sekund'
+'half a minute ago': 'pół minuty'
+'less than a minute ago': 'mniej niż minuta'
+'1 minute ago': '1 minuta'
+'%minutes minutes ago': '%minutes minut'
+'about 1 hour ago': 'około godziny'
+'about %hours hours ago': 'około %hours godzin'
+'1 day ago': '1 dzień'
+'%days days ago': '%days dni'
+'{1} 1 month ago |]1,Inf[ %months months ago': null

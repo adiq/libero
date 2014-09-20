@@ -1,0 +1,52 @@
+{% extends 'AdiqLiberoBundle::layout.html.twig' %}
+
+{% block title %}Podgląd książki{% endblock %}
+
+
+{% block content %}
+
+    <h1 class="title">Podgląd książki</h1>
+    
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Numer identyfikacyjny</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Rok wydania</th>
+                <td>{{ entity.year|date('Y') }}</td>
+            </tr>
+            <tr>
+                <th>Tytuł</th>
+                <td>{{ entity.title }}</td>
+            </tr>
+            <tr>
+                <th>Autorzy</th>
+                <td>{% for a in entity.authors %}{{ a.name }} {{ a.lastname }}
+                {% if not loop.last %}<br />{% endif %}
+                {% endfor %}</td>
+            </tr>
+            <tr>
+                <th>Stan obecny</th>
+                <td>{% if entity.isRented %}Książka jest wypożyczona{% else %}Książka nie jest wypożyczona{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('book') }}">
+            Powrót do listy
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('book_edit', { 'id': entity.id }) }}">
+            Edytuj dane książki
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+
+{% endblock %}

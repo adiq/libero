@@ -1,0 +1,31 @@
+{% extends 'AdiqLiberoBundle::layout.html.twig' %}
+
+{% block title %}Raport o czytelnikach{% endblock %}
+
+
+{% block content %}
+
+    <h1 class="title">Raport o czytelnikach</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Ilość wypożyczeń</th>
+                <th>Średni czas czytania książki</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entry in out %}
+            <tr>
+                <td>{{ entry.name }}</td>
+                <td>{{ entry.lastname }}</td>
+                <td>{{ entry.books }}</td>
+                <td>{{ entry.time }} dni</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

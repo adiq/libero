@@ -1,0 +1,57 @@
+{% extends 'AdiqLiberoBundle::layout.html.twig' %}
+
+{% block title %}Symfony - Welcome{% endblock %}
+
+
+{% block content %}
+
+    <div class="symfony-blocks-welcome">
+        <div class="block-quick-tour">
+            <div class="illustration">
+                <img src="{{ asset('bundles/adiqlibero/images/splash-out.png') }}" alt="Wypożycz" />
+            </div>
+            <a href="{{ path('rent') }}" class="sf-button sf-button-selected">
+                <span class="border-l">
+                    <span class="border-r">
+                        <span class="btn-bg">WYPOŻYCZ KSIĄŻKĘ</span>
+                    </span>
+                </span>
+            </a>
+        </div>
+
+        <div class="block-configure">
+            <div class="illustration">
+                <img src="{{ asset('bundles/adiqlibero/images/splash-in.png') }}" alt="Zwróć" />
+            </div>
+            <a href="{{ path('return') }}" class="sf-button sf-button-selected">
+                <span class="border-l">
+                    <span class="border-r">
+                        <span class="btn-bg">ZWRÓĆ KSIĄŻKĘ</span>
+                    </span>
+                </span>
+            </a>
+        </div>
+
+        <div class="block-demo">
+            <div class="illustration">
+                <img src="{{ asset('bundles/adiqlibero/images/splash-reports.png') }}" alt="Raporty" />
+            </div>
+            <a href="{{ path('report_books') }}" class="sf-button sf-button-selected">
+                <span class="border-l">
+                    <span class="border-r">
+                        <span class="btn-bg">RAPORT WYPOŻYCZEŃ</span>
+                    </span>
+                </span>
+            </a>
+            <br /><br />
+            <a href="{{ path('report_readers') }}" class="sf-button sf-button-selected">
+                <span class="border-l">
+                    <span class="border-r">
+                        <span class="btn-bg">RAPORT CZYTELNIKÓW</span>
+                    </span>
+                </span>
+            </a>
+        </div>
+    </div>
+
+{% endblock %}
